@@ -10,7 +10,7 @@ html, body {
 
 body {
   padding-top: 90px;
-  background: url("../img/background/gold2.png");
+  background: #839fc0;
   background-size: 100% auto;
   background-attachment: fixed; }
   @media (max-aspect-ratio: 16 / 10) {

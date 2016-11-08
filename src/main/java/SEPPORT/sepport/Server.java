@@ -218,7 +218,7 @@ public class Server {
 		headers.add("Content-Type", "text/html");
 		String user = request.getParameter("user");
 		String pass = request.getParameter("password");
-		System.out.println(pass);
+		System.out.println(pass); 
 		System.out.println(user);
 		if(user.equals("1425220")&&pass.equals("password")){
 			System.out.println("swag logged in");

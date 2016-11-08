@@ -12,9 +12,8 @@ html, body
 
 body 
 {
-    
     padding-top: 90px; 
-    background: url('../img/background/gold2.png');
+    background: url("../img/background/gold2.png"); // #839fc0; // 
     background-size: 100% auto;
     background-attachment: fixed;
     
@@ -91,7 +90,7 @@ nav.navbar
 {
     min-height: 260px;
     width: 100%;
-    background: #AEA070; // #C8CBD1
+    background: #C8CBD1; // #AEA070
     display: block;
     position: relative;
     margin-bottom: 30px;
@@ -257,6 +256,12 @@ ul
             background: #FFF url('../img/logo/jira.png') center no-repeat;
             background-size: 70% auto;
         }
+
+        &.alf
+        {
+            background: #FFF url('../img/logo/alf.png') center no-repeat;
+            background-size: 70% auto;
+        }
     }
 }
 
@@ -324,6 +329,19 @@ ul
         height: 500px;
         /*display: block; */
     }
+}
+
+.changebg
+{
+    height: 40px;
+    line-height: 40px;
+    background: #AD9F6F;
+    border-radius: 3px;
+    width: 300px;
+    display: block;
+    color: #FFF;
+    margin: 0px auto;
+    cursor: pointer;
 }
 
 

@@ -52,7 +52,7 @@ nav.navbar {
 .fullheightwidth {
   min-height: 260px;
   width: 100%;
-  background: #AEA070;
+  background: #C8CBD1;
   display: block;
   position: relative;
   margin-bottom: 30px;
@@ -154,6 +154,9 @@ ul {
     ul .quicklink.jira {
       background: white url("../img/logo/jira.png") center no-repeat;
       background-size: 70% auto; }
+    ul .quicklink.alf {
+      background: white url("../img/logo/alf.png") center no-repeat;
+      background-size: 70% auto; }
 
 #addwidget {
   height: 60px;
@@ -205,6 +208,17 @@ ul {
     opacity: 1;
     height: 500px;
     /*display: block; */ }
+
+.changebg {
+  height: 40px;
+  line-height: 40px;
+  background: #AD9F6F;
+  border-radius: 3px;
+  width: 300px;
+  display: block;
+  color: #FFF;
+  margin: 0px auto;
+  cursor: pointer; }
 
 @media (max-width: 1200px) {
   .leftcol {
