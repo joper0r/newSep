@@ -11,15 +11,18 @@ public class CookieAuth {
 
 	//Checkt ob Cookie vorhanden
 	public static boolean checkAuth(String cookie){
-		return Collections.synchronizedMap(getCookies()).containsKey(cookie);
+		String cookieL = cookie.substring(9);
+		
+		return Collections.synchronizedMap(getCookies()).containsKey(cookieL);
 	}
 	
 	//Gibt die UserId für übergebenes Cookie aus
 	public static int getUserId(String cookie){
-		if(Collections.synchronizedMap(getCookies()).get(cookie)==null){
+		String cookieL = cookie.substring(9);
+		if(Collections.synchronizedMap(getCookies()).get(cookieL)==null){
 			return -1;
 		}
-		return Collections.synchronizedMap(getCookies()).get(cookie);
+		return Collections.synchronizedMap(getCookies()).get(cookieL);
 	}
 	
 	//Checkt ob Nutzer bereits ein Cookie besitzt
@@ -28,8 +31,10 @@ public class CookieAuth {
 	}
 	
 	//Legt ein neues Cookie mit UserId in Hashmap an
-	public static void insertAuth(int userId){
-		Collections.synchronizedMap(getCookies()).put(createCookie(), userId);
+	public static String insertAuth(int userId){
+		String uuid = createCookie();
+		Collections.synchronizedMap(getCookies()).put(uuid, userId);
+		return "exsession="+uuid;
 	}
 	
 	//Löscht ein vorhandenes Cookie

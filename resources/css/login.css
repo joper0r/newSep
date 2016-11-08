@@ -1,0 +1,60 @@
+html {
+  height: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  background: #ACB1B7; }
+
+body {
+  padding-top: 90px;
+  background: url("../img/background/gold2.png");
+  background-size: 100% auto;
+  background-attachment: fixed; }
+  @media (max-aspect-ratio: 16 / 10) {
+    body {
+      background-size: auto 100%; } }
+
+nav.navbar {
+  background: #FFF;
+  border: 0px;
+  -webkit-box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.3); }
+
+nav.navbar .container {
+  padding: 10px 0px; }
+
+.main.container #login {
+  position: absolute;
+  background: #FFF;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  left: 50%;
+  margin-left: -200px;
+  height: 250px;
+  top: 50%;
+  margin-top: -125px; }
+  .main.container #login .header {
+    font-size: 16px;
+    font-weight: bold; }
+  .main.container #login input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #AD9F6F;
+    margin-top: 20px;
+    padding: 0px 10px; }
+    .main.container #login input[type=submit] {
+      background: #AD9F6F;
+      border: 0px solid;
+      color: #FFF;
+      font-weight: bold; }
+  @media (max-width: 400px) {
+    .main.container #login {
+      width: 100%;
+      margin-left: 0px;
+      left: 0px; } }

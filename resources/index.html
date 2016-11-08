@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="dashboard">
+    <head>
+        <title>Exxeta Prototyp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/remodal.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/remodal.css">
+        <link rel="stylesheet" href="css/remodal-default-theme.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-controller="dashboardController as dashboard">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="col-md-2">
+                    <img src="img/exxeta.png" height="40" id="logo">
+                </div>
+                <div class="col-md-7">
+                    <ul class="nomobile">
+                        <li><a href="#">Unternehmen</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Dokumente</a></li>
+                        <li><a href="#">HowTo</a></li>
+                        <li><a href="#settings" class="rmodal" data-remodal-target="settingsmodal"><i class="glyphicon glyphicon-cog"></i></a></li>
+                        <!--                        <li><a href="#">Mitarbeiter</a></li>
+                                                <li><a href="#">Führungskräfte</a></li>-->
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <input placeholder="Intranet durchsuchen">
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 leftcol">
+                    <ul id="left">
+                        <li class="fullheightwidth mensa">
+                            <div class="header">Kantine <i class="glyphicon glyphicon-cog"></i></div>
+                            <div class="footer">Schnitzel mit Pommes</div>
+                        </li>
+                        <li class="fullheightwidth">
+                            <div class="header">Wetter <i class="glyphicon glyphicon-cog"></i></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 middlecol">
+                    <ul id="middle">
+                        <li class="fullheightwidth">
+                            <div class="header">Aktuelle Veranstaltungen <i class="glyphicon glyphicon-cog"></i></div>
+                            <ol id="dates">
+                                <li ng-repeat="date in dashboard.dates" class="date"><strong>{{date.date}}</strong> - {{date.header}}</li>
+                            </ol>
+                        </li>
+                        <li class="fullheightwidth">
+                            <div class="header">Neuigkeiten <i class="glyphicon glyphicon-cog"></i></div>
+                            <ol id="news">
+                                <li ng-repeat="news in dashboard.news">
+                                    <h2>{{news.header}}</h2>
+                                    <p>{{news.text}}</p>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 rightcol">
+                    <ul id="quicklinks" class="sortable">
+                        <li ng-repeat="apps in dashboard.usedapps" class="quicklink {{apps}}"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span id="addwidget" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <div id="widgetmenu">
+            <ul id="unusedwidgets" class="sortable">
+                <li ng-repeat="apps in dashboard.unusedapps" class="quicklink {{apps}}">{{apps}}</li>
+            </ul>
+        </div>
+
+        <div class="remodal" data-remodal-id="settingsmodal">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <h1>Einstellungen</h1>
+            <p>
+                <span class="changebg" data-bg="">Standard</span><br>
+                <span class="changebg" data-bg="karlsruhe">Karlsruhe</span><br>
+                <span class="changebg" data-bg="dresden">Dresden</span><br>
+                <span class="changebg" data-bg="miami">Miami</span><br>
+            </p>
+            <br>
+            <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+        </div>
+    </body>
+</html>
