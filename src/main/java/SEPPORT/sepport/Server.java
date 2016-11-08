@@ -34,7 +34,7 @@ public class Server {
 			headers.add("Refresh","0; url=http://localhost:8080/login");
 			return new ResponseEntity<String>(headers, HttpStatus.UNAUTHORIZED);
 		}
-		headers.add("Content-Type", "text/html");
+		headers.add("Content-Type", "text/html; charset=utf-8");
 		String ret = "";
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\"+name+"."+endung));
@@ -48,7 +48,7 @@ public class Server {
 	@RequestMapping(value = "/css/{name}.{endung}")
 	ResponseEntity<String> resourceCss(@PathVariable("name") String name,@PathVariable("endung") String endung, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.add("Content-Type", "text/css");
+		headers.add("Content-Type", "text/css; charset=utf-8");
 		String ret = "";
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\css\\"+name+"."+endung));
@@ -62,7 +62,7 @@ public class Server {
 	@RequestMapping(value = "/js/{name}.{endung}")
 	ResponseEntity<String> resourceJs(@PathVariable("name") String name,@PathVariable("endung") String endung, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.add("Content-Type", "application/javascript");
+		headers.add("Content-Type", "application/javascript; charset=utf-8");
 		String ret = "";
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\js\\"+name+"."+endung));
@@ -76,7 +76,7 @@ public class Server {
 	@RequestMapping(value = "/json/{name}.json")
 	ResponseEntity<String> resourceJs(@PathVariable("name") String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.add("Content-Type", "text/json");
+		headers.add("Content-Type", "text/json; charset=utf-8");
 		String ret = "";
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\json\\"+name+".json"));
@@ -183,7 +183,7 @@ public class Server {
 	@RequestMapping(value = "/")
 	ResponseEntity<String> dashboard(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.add("Content-Type", "text/html");
+		headers.add("Content-Type", "text/html; charset=utf-8");
 		if(checkForCookie(request)==false){
 			headers.add("Refresh","0; url=http://localhost:8080/login");
 			return new ResponseEntity<String>(headers, HttpStatus.UNAUTHORIZED);
@@ -201,7 +201,7 @@ public class Server {
 	@GetMapping(value = "/login")
 	ResponseEntity<String> login(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		MultiValueMap<String, String> headers = new HttpHeaders();
-		headers.add("Content-Type", "text/html");
+		headers.add("Content-Type", "text/html; charset=utf-8");
 		String ret = "";
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\login.html"));
