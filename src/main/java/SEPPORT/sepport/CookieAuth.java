@@ -11,8 +11,9 @@ public class CookieAuth {
 
 	//Checkt ob Cookie vorhanden
 	public static boolean checkAuth(String cookie){
-		String cookieL = cookie.substring(9);
-		
+		String cookieL = cookie.substring(10);
+		System.out.println(cookie);
+		System.out.println(cookieL);
 		return Collections.synchronizedMap(getCookies()).containsKey(cookieL);
 	}
 	

@@ -39,7 +39,7 @@ public class Server {
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\"+name+"."+endung));
 		while ((line = reader.readLine()) != null) {
-			ret = ret + line;
+			ret = ret + line + System.lineSeparator();
 		}
 		reader.close();
 		return new ResponseEntity<String>(ret,headers, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class Server {
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\css\\"+name+"."+endung));
 		while ((line = reader.readLine()) != null) {
-			ret = ret + line;
+			ret = ret + line + System.lineSeparator();
 		}
 		reader.close();
 		return new ResponseEntity<String>(ret,headers, HttpStatus.OK);
@@ -67,10 +67,51 @@ public class Server {
 		String line = "";
 		BufferedReader reader = new BufferedReader(new FileReader("resources\\js\\"+name+"."+endung));
 		while ((line = reader.readLine()) != null) {
-			ret = ret + line;
+			ret = ret + line + System.lineSeparator();
 		}
 		reader.close();
 		return new ResponseEntity<String>(ret,headers, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/json/{name}.json")
+	ResponseEntity<String> resourceJs(@PathVariable("name") String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		MultiValueMap<String, String> headers = new HttpHeaders();
+		headers.add("Content-Type", "text/json");
+		String ret = "";
+		String line = "";
+		BufferedReader reader = new BufferedReader(new FileReader("resources\\json\\"+name+".json"));
+		while ((line = reader.readLine()) != null) {
+			ret = ret + line + System.lineSeparator();
+		}
+		reader.close();
+		return new ResponseEntity<String>(ret,headers, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/img/{folder}/{name}.{endung}")
+	ResponseEntity<byte[]> resourceImg(@PathVariable("folder") String folder, @PathVariable("name") String name, @PathVariable("endung") String endung, HttpServletRequest request, HttpServletResponse response){
+		MultiValueMap<String, String> headers = new HttpHeaders();
+		
+		if(endung=="jpeg"||endung=="jpg"){
+			headers.add("Content-Type", "image/jpeg");
+		}else{
+			headers.add("Content-Type", "image/"+endung);
+		}
+		
+		File pfad = new File("");
+		byte[] fileContent=null;
+		File file = new File("resources\\img\\"+folder+"\\"+name+"."+endung);
+		FileInputStream fin = null;
+		try {
+			fin = new FileInputStream(file);
+			fileContent = new byte[(int)file.length()];
+			fin.read(fileContent);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResponseEntity<byte[]>(fileContent,headers,HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/img/{name}.{endung}")
