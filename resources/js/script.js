@@ -24,6 +24,31 @@ $(function () {
         $('[data-remodal-id=settingsmodal]').remodal().close();
     });
 });
+function openApp(quicklink)
+{
+    app = $(quicklink).attr("rel");
+    
+    console.log(app);
+    
+    if (app == "skype")
+        openSkype();
+    else if (app == "lieferando")
+        openLieferando();
+        
+}
+function openUrl(url)
+{
+    var win = window.open(url, '_blank');
+    win.focus();
+}
+function openSkype()
+{
+    openUrl("https://www.skype.com/de/");
+}
+function openLieferando()
+{
+    openUrl("https://www.lieferando.de/");
+}
 
 
 function Fab() {

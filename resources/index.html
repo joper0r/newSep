@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md-3 rightcol">
                     <ul id="quicklinks" class="sortable">
-                        <li ng-repeat="apps in dashboard.usedapps" class="quicklink {{apps}}"></li>
+                        <li ng-repeat="apps in dashboard.usedapps" class="quicklink {{apps}}" rel="{{apps}}" onClick="openApp(this);"></li>
                     </ul>
                 </div>
             </div>

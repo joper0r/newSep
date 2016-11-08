@@ -131,7 +131,7 @@ ul {
       border: 3px dashed #DDD;
       background: transparent; }
     ul .quicklink.skype {
-      background: #a8e5ff url("../img/logo/skype.svg") center no-repeat;
+      background: #a8e5ff url("../img/logo/skype.png") center no-repeat;
       background-size: 70% auto; }
     ul .quicklink.lieferando {
       background: #ff8901 url("../img/logo/lieferando.png") center no-repeat;
