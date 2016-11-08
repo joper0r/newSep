@@ -220,7 +220,7 @@ public class Server {
 		String pass = request.getParameter("password");
 		System.out.println(pass);
 		System.out.println(user);
-		if(user.equals("root")&&pass.equals("toor")){
+		if(user.equals("1425220")&&pass.equals("password")){
 			System.out.println("swag logged in");
 			String cookie = CookieAuth.insertAuth(111);
 			headers.add("Refresh","0; url=http://localhost:8080/index.html");
